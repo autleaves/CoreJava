@@ -1,5 +1,7 @@
 package org.corejava.pair2;
 
+import org.corejava.equals.Manager;
+
 public class Pair<T>
 {
     private T first;

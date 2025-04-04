@@ -22,5 +22,9 @@ public class MapTest
 		out.println("========================");
 
 		staff.forEach((k, v)->out.println("key=" + k + ", value=" + v));
+		String str = null;
+		str += "null";
+		out.println(str);
+		out.println(str.length());
 	}
 }
