@@ -1,0 +1,6 @@
+Chongqing,Chongqing,China,28846200
+Shanghai,Shanghai,China,23019100
+Beijing,Beijing,China,19612400
+Chengdu,Sicuan,China,14047600
+Zigong,Sicuan,China,14047600
+Mianyang,Sicuan,China,14047600
