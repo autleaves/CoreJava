@@ -73,6 +73,7 @@ public class CollectingIntoMaps
 						}));
 		System.out.println("countryLanguageSets: " + countryLanguageSets);
 
+		// Grouping and Partitioning
 		locales = Stream.of(Locale.getAvailableLocales());
 		Map<String, List<Locale>> countryToLocales = locales.collect(
 				Collectors.groupingBy(Locale::getCountry));
