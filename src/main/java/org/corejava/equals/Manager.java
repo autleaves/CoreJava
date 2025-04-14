@@ -2,6 +2,7 @@ package org.corejava.equals;
 
 public class Manager extends Employee {
     private double bonus;
+    private Employee secretary;
 
     public Manager(String name, double salary, int year, int month, int day){
         super(name, salary, year, month, day);
@@ -19,6 +20,11 @@ public class Manager extends Employee {
     public double getBonus()
     {
         return bonus;
+    }
+    public void setSecretary(Employee secretary) { this.secretary = secretary; }
+    public Employee getSecretary()
+    {
+        return secretary;
     }
     @Override
     public boolean equals(Object otherObject) {

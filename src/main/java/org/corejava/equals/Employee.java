@@ -1,11 +1,14 @@
 package org.corejava.equals;
 
+import java.io.Serializable;
 import java.time.*;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Serializable {
 
-    private String name;     
+    public static int NAME_SIZE = 40;
+    public static int RECORD_SIZE = 100;
+    private String name;
     private double salary;
     private LocalDate hireDay;
 
