@@ -80,14 +80,43 @@ public class QueryTest
         }
     }
 
-    private static void executeQuery(Connection conn)
-    {
-        
+    private static void executeQuery(Connection conn) throws SQLException {
+        String author = select("Authors:", authors);
+        String publisher = select("Publishers:", publishers);
+        PreparedStatement stat;
+        if (!author.equals("Any") && !publisher.equals("Any")) {
+            stat = conn.prepareStatement(authorPublisherQuery);
+            stat.setString(1, author);
+            stat.setString(2, publisher);
+        } else if (!author.equals("Any") && publisher.equals("Any")) {
+            stat = conn.prepareStatement(authorQuery);
+            stat.setString(1, author);
+        } else if (author.equals("Any") && !publisher.equals("Any")) {
+            stat = conn.prepareStatement(publisherQuery);
+            stat.setString(1, publisher);
+        } else {
+            stat = conn.prepareStatement(allQuery);
+        }
+
+        try (ResultSet rs = stat.executeQuery())
+        {
+            while (rs.next())
+            {
+                out.println(rs.getString(1) + ", " + rs.getString(2));
+            }
+        }
     }
 
-    private static void changePrices(Connection conn)
+    private static void changePrices(Connection conn) throws SQLException
     {
-
+        String publisher = select("Publishers:", publishers.subList(1, publishers.size()));
+        out.println("Change prices by:");
+        double priceChange = in.nextDouble();
+        PreparedStatement stat = conn.prepareStatement(priceUpdate);
+        stat.setDouble(1, priceChange);
+        stat.setString(2, publisher);
+        int r = stat.executeUpdate();
+        out.println(r + " records updated.");
     }
 
     public static String select(String prompt, List<String> options)
@@ -96,7 +125,7 @@ public class QueryTest
         {
             out.println(prompt);
             for (int i = 0; i < options.size(); i++)
-                out.printf("2%d) %s%n", i + 1, options.get(i));
+                out.printf("%2d) %s%n", i + 1, options.get(i));
             int sel = in.nextInt();
             if (sel > 0 && sel <= options.size())
                 return options.get(sel - 1);
