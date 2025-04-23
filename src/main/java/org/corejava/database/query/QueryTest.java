@@ -82,7 +82,7 @@ public class QueryTest
 
     private static void executeQuery(Connection conn)
     {
-        
+
     }
 
     private static void changePrices(Connection conn)
