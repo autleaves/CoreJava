@@ -80,6 +80,11 @@ public class QueryTest
         }
     }
 
+<<<<<<< HEAD
+    private static void executeQuery(Connection conn)
+    {
+
+=======
     private static void executeQuery(Connection conn) throws SQLException {
         String author = select("Authors:", authors);
         String publisher = select("Publishers:", publishers);
@@ -105,6 +110,7 @@ public class QueryTest
                 out.println(rs.getString(1) + ", " + rs.getString(2));
             }
         }
+>>>>>>> refs/remotes/origin/master
     }
 
     private static void changePrices(Connection conn) throws SQLException
