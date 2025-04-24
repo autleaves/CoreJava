@@ -1,17 +1,21 @@
 package org.corejava.database.query;
 
+import static java.lang.System.out;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
-
-import static java.lang.System.out;
 
 public class QueryTest
 {
@@ -80,11 +84,6 @@ public class QueryTest
         }
     }
 
-<<<<<<< HEAD
-    private static void executeQuery(Connection conn)
-    {
-
-=======
     private static void executeQuery(Connection conn) throws SQLException {
         String author = select("Authors:", authors);
         String publisher = select("Publishers:", publishers);
@@ -110,7 +109,6 @@ public class QueryTest
                 out.println(rs.getString(1) + ", " + rs.getString(2));
             }
         }
->>>>>>> refs/remotes/origin/master
     }
 
     private static void changePrices(Connection conn) throws SQLException

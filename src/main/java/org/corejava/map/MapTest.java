@@ -1,8 +1,10 @@
 package org.corejava.map;
 
-import java.util.HashMap;
-import org.corejava.equals.Employee;
 import static java.lang.System.out;
+
+import java.util.HashMap;
+
+import org.corejava.equals.Employee;
 
 public class MapTest
 {
@@ -15,11 +17,11 @@ public class MapTest
 		staff.put("456-62-5527", new Employee("Francesca Cruz"));
 
 		out.println(staff);
-		out.println("========================");
+		// out.println("========================");
 		staff.remove("567-24-2546");
 		staff.put("456-62-5527", new Employee("Francesca Miller"));
 		out.println(staff.get("456-62-5527"));
-		out.println("========================");
+		// out.println("========================");
 
 		staff.forEach((k, v)->out.println("key=" + k + ", value=" + v));
 		String str = null;
